@@ -1,8 +1,9 @@
 import React from "react";
+import "./Profile.css";
 
 const Profile = () => {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div className="profile-container">
       <h1>Profile</h1>
       <p>Email: user@example.com</p>
       <button>Logout</button>
