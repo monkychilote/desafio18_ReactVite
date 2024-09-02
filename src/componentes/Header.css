@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Yellowtail&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ededed;
+}
+
+main {
+  flex: 1;
+  width: 100vw;
+}
+
+.header {
+  padding: 60px;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.header h1 {
+  font-size: 5rem;
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header p {
+  font-size: 1.5rem;
+}
+
+.footer {
+  padding: 10px 0;
+}
+
+.btn-success {
+  margin-left: 10px;
+}
+
+.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+}
+/* Estilos para tarjetas de igual altura */
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin-bottom: auto;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.mt-auto {
+  margin-top: 20px;
+}
+.navbar {
+  padding-left: 20px;
+}
