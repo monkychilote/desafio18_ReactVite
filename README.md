@@ -1,5 +1,5 @@
 # Visita la web del proyecto
-https://monkychilote.github.io/desafio17_ReactVite_1/
+https://pizzeria-mamma-mia-g71.netlify.app/
 
 
 # React + Vite
