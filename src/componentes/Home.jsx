@@ -1,27 +1,31 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import CardPizza from "./CardPizza";
-// import { pizzas } from "../pizzas";  // Esta línea se puede comentar o eliminar si ya no utilizas el array estático
+import React from 'react';
+import CardPizza from "./CardPizza"; // Asegúrate de que la ruta sea correcta
+import { usePizzas } from '../context/PizzaContext';  // Consumimos el contexto de las pizzas
 
 const Home = () => {
-  const [pizzas, setPizzas] = useState([]);
+  const { pizzas, loading, error } = usePizzas();  // Obtenemos las pizzas desde el contexto
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/pizzas")
-      .then((response) => response.json())
-      .then((data) => setPizzas(data));
-  }, []);
+  if (loading) return <p>Cargando pizzas...</p>;
+  if (error) return <p>Error al cargar pizzas: {error}</p>;
 
   return (
-    <div>
-      {pizzas.map((pizza) => (
-        <div key={pizza.id}>
-          <h2>{pizza.name}</h2>
-          <p>{pizza.description}</p>
-          <p>Price: ${pizza.price}</p>
-          <img src={pizza.image} alt={pizza.name} />
-        </div>
-      ))}
+    <div className="container">
+      <div className="row">
+        {pizzas.length > 0 ? (
+          pizzas.map((pizza) => (
+            <CardPizza 
+              key={pizza.id}
+              pizza={pizza}
+              name={pizza.name}
+              price={pizza.price}
+              ingredients={pizza.ingredients}
+              img={pizza.image}
+            />
+          ))
+        ) : (
+          <p>No hay pizzas disponibles.</p>
+        )}
+      </div>
     </div>
   );
 };

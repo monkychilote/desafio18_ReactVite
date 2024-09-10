@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
 
-const Pizza = () => {
-  const [pizza, setPizza] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/pizzas/p001")
-      .then((response) => response.json())
-      .then((data) => setPizza(data));
-  }, []);
-
-  if (!pizza) return <div>Cargando...</div>;
-
+const Pizza = ({ name, price, ingredients, img }) => {
   return (
-    <div>
-      <h2>{pizza.name}</h2>
-      <p>Price: ${pizza.price}</p>
-      <p>Ingredients: {pizza.ingredients.join(", ")}</p>
-      <img src={pizza.image} alt={pizza.name} />
-      <p>{pizza.description}</p>
+    <div className="col-md-4 mb-4">
+      <div className="card h-100">
+        <img src={img} className="card-img-top" alt={name} />
+        <div className="card-body d-flex flex-column">
+          <h5 className="card-title">{name}</h5>
+          <ul className="list-unstyled">
+            {ingredients.map((ingredient, index) => (
+              <li key={index} className="text-capitalize">{ingredient}</li>
+            ))}
+          </ul>
+          <p className="card-text">Precio: ${price.toLocaleString()}</p>
+        </div>
+      </div>
     </div>
   );
 };

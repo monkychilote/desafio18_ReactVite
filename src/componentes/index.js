@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client"; // Nota: Aquí importamos 'react-dom/client'
-import App from "./App.jsx"; // Asegúrate de que este sea el nombre correcto
-import "./index.css"; // Si tienes estilos globales
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
+import { CartProvider } from './context/CartContext';
 
-// Esto es lo nuevo en React 18:
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <CartProvider>
+      <App />
+    </CartProvider>
   </React.StrictMode>
 );

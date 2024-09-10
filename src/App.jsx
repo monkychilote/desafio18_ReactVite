@@ -1,30 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
-import Pizza from "./pages/Pizza";
-import Profile from "./pages/Profile";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/Navbar";
-import Footer from "./componentes/Footer";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { CartProvider } from "./context/CartContext";  // Asegúrate de que la ruta sea correcta
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/pizza/p001" element={<Pizza />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <CartProvider>  {/* Agregamos el CartProvider aquí */}
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from '../context/CartContext'; // Importamos el contexto
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = () => {
-  const total = 25000;
-  const token = false;
+  const { totalAmount } = useCart(); // Asegúrate de que el contexto está correctamente configurado
+  const token = false; // Este valor puede cambiar según tu sistema de autenticación
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -63,7 +64,7 @@ const Navbar = () => {
           )}
           <li className="nav-item">
             <Link className="nav-link" to="/cart">
-              🛒 Total: ${total.toLocaleString()}
+              🛒 Total Carrito: ${totalAmount ? totalAmount.toLocaleString() : "0"} {/* Mostramos el total del carrito dinámicamente */}
             </Link>
           </li>
         </ul>
